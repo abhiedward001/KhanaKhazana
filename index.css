@@ -1,0 +1,82 @@
+.container{
+    background-color: rgb(170, 135, 135);
+}
+.Header{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+.headerIcon{
+    width: 80px;
+    height: 80px;
+}
+
+.headerButtons > ul{
+display: flex;
+list-style: none;
+justify-content: space-between;
+}
+.headerButtons > ul > li{
+    padding-right: 25px;
+    font-size:25px;
+}
+.resContainer{
+    display: flex;
+   flex-wrap: wrap;
+}
+.resCard{
+    height: 410px;
+    width: 320px;
+   margin: 20px;
+    padding: 10px;
+}
+.resCard:hover{
+    border: 1.8px solid black;
+    cursor: pointer;
+}
+
+.bodySearch{
+    padding: 10px;
+
+}
+.resFilter{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.loader{
+    font-size: 30px;
+    position: fixed;
+    top:50%;
+    left: 50%;
+}
+.shimmerCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmerCard{
+    height: 410px;
+    width: 320px;
+    margin: 10px;
+    
+    background-color: #f0f0f0;
+
+}
+.login-Btn{
+    margin:0px 8px 0px 8px;
+    padding:0px 8px 0px 8px;
+    border-radius: 3px;
+}
+.search{
+    margin-left: 3rem;
+}
+.search>input{
+    width: 300px;
+    height:30px;
+}
+.search>button{
+    width: 70px;
+    height:36px;
+    margin-left: 2px;
+}
