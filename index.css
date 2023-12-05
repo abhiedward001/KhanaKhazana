@@ -80,3 +80,11 @@ justify-content: space-between;
     height:36px;
     margin-left: 2px;
 }
+.user-detail{
+    border: 2px solid black;
+    padding: 10px;
+}
+.user-detail>button{
+    width: 100px;
+    height: 35px;
+}

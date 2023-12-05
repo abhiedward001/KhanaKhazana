@@ -37,7 +37,7 @@ const router = createBrowserRouter([
                 element: <Privacy />
             },
             {
-                path:'/restaurant/:id',
+                path:'/restaurant/:resId',
                 element:<Restuarant/>
             }
         ]
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     }
     ,
     {
-        path:'/restaurant/:id',
+        path:'/restaurant/:resId',
         element:<Restuarant/>
     }
 ]);
