@@ -4,6 +4,7 @@ import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useInternetStatus from "../utils/useInternetStatus";
 
 // Body of webpage
 const Body = () => {
@@ -11,6 +12,7 @@ const Body = () => {
     const [listOfResturants, setListOfResturnts] = useState([]);
     const [filterResturants, setFilterResturants] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const internetStatus=useInternetStatus();
 
     useEffect(() => {
         fetchData();
@@ -42,7 +44,9 @@ const Body = () => {
         setFilterResturants(searchFilterData);
     }
 
-
+    if(internetStatus===false){
+        return(<h1>Opps looks like your internet connection is off</h1>)
+    }
     return (listOfResturants.length === 0) ? (<Shimmer />) : (
         <div className="bodyContainer">
 

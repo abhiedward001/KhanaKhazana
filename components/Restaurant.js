@@ -1,34 +1,18 @@
 import React, { useState, useEffect } from "react"
-import { resURL } from "../utils/constans";
+
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useResturantFetchData from "../utils/useResturantFetchData";
 
 
 const Restuarant = () => {
-
-    const [cartDetailObject, setCartDetailObject] = useState({});
-
     const {resId}=useParams();
-    console.log({resId});
+    const resInfo=useResturantFetchData(resId); // using custom hook for fetching the data
+ 
+    if (Object.keys(resInfo).length === 0) return <Shimmer />;
 
-    useEffect(() => {
-        fetchCartData();
-    }, [])
-
-    const fetchCartData = async () => {
-        const cartData = await fetch(`${resURL}${resId}`);
-        const jsonCartData = await cartData.json();
-
-        setCartDetailObject(jsonCartData);
-    }
-
-
-    if (Object.keys(cartDetailObject).length === 0) return <Shimmer />;
-
-    const { itemCards: menuitems } = cartDetailObject?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card;
-    const { name } = cartDetailObject?.data?.cards[0]?.card?.card?.info;
-    console.log(menuitems);
-    
+    const { itemCards: menuitems } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card?.categories[0];
+    const { name } = resInfo?.data?.cards[0]?.card?.card?.info;
     return (
         <div className="menu">
             <h1>{name}</h1>

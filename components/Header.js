@@ -2,12 +2,12 @@ import React from "react";
 import { iconUrl } from "../utils/constans";
 import { useState} from "react";
 import { Link } from "react-router-dom";
-
-
+import useInternetStatus from "../utils/useInternetStatus";
 
 // Header of the website
 const Header = () => {
     const[loginBtn,setLoginBtn]=useState("Login");
+    const internetStatus=useInternetStatus();
 
     const logibBtnHandler=()=>{
       const currentBtnState=(loginBtn==="Login")?"Logout":"Login";
@@ -22,6 +22,7 @@ const Header = () => {
 
         <div className="headerButtons">
             <ul>
+                <li>Online Status:- {internetStatus? "✅" : "❌"} </li>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/aboutus">About Us</Link></li>
                 <li><Link to="/privacy">Privacy</Link></li>
