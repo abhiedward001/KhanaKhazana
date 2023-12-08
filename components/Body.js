@@ -27,8 +27,8 @@ const Body = () => {
     }
 
     const filterResData = () => {
-        const filteresData = listOfResturants.filter((data) => data.info.avgRating > 4);
-        setListOfResturnts(filteresData);
+        const filteresData = listOfResturants.filter((data) => data.info.avgRating > 4.2);
+        setFilterResturants(filteresData);
     }
 
     const searchTextHandler = (e) => {
@@ -47,21 +47,21 @@ const Body = () => {
     if(internetStatus===false){
         return(<h1>Opps looks like your internet connection is off</h1>)
     }
-    return (listOfResturants.length === 0) ? (<Shimmer />) : (
-        <div className="bodyContainer">
+    return (listOfResturants.length === 0) ? (<div ><Shimmer ></Shimmer>/</div>) : (
+        <div className="bodyContainer mx-11 ">
 
-            <div className="resFilter">
+            <div className="resFilter flex items-center mx-10">
 
-                <button className="resFilterButton" onClick={filterResData}>Filter Top Resturants</button>
+                <button className="resFilterButton px-4 bg-gray-200 h-7 rounded-lg " onClick={filterResData}>Filter Top Resturants</button>
 
-                <div className="search">
-                    <input type="text" onChange={searchTextHandler} value={searchText}></input>
-                    <button onClick={searchBtnHandler}>Submit</button>
+                <div className="search m-2 p-4 ">
+                    <input className="border border-black rounded-md w-[300px]" type="text" onChange={searchTextHandler} value={searchText}></input>
+                    <button  className="px-4 m-2 bg-blue-200 rounded-md"onClick={searchBtnHandler}>Submit</button>
                 </div>
 
             </div>
 
-            <div className="resContainer">
+            <div className="resContainer flex flex-wrap ">
                 {filterResturants.map((item) => <Link to={`restaurant/${item.info.id}`}> <ResturantCard key={item.info.id} resData={item} /> </Link>)}
             </div>
 

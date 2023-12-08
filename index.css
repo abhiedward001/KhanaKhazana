@@ -1,4 +1,4 @@
-.container{
+/* .container{
     background-color: rgb(170, 135, 135);
 }
 .Header{
@@ -87,4 +87,10 @@ justify-content: space-between;
 .user-detail>button{
     width: 100px;
     height: 35px;
-}
+} */
+
+/* setting up the tailwind  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
