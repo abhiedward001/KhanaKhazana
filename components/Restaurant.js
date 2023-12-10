@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useResturantFetchData from "../utils/useResturantFetchData";
-
+import RestuarantMenuDropdown from "./RestuarantMenuDropdown";
 
 const Restuarant = () => {
     const {resId}=useParams();
@@ -11,16 +11,21 @@ const Restuarant = () => {
  
     if (Object.keys(resInfo).length === 0) return <Shimmer />;
 
-    const { itemCards: menuitems } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card;
+    const menuitems = resInfo?.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
     const { name } = resInfo?.data?.cards[0]?.card?.card?.info;
+    // console.log(resInfo)
+    const filterCateogary=menuitems.filter((item)=>{
+       return(item?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    })
+
     return (
-        <div className="menu">
-            <h1>{name}</h1>
-            <h2>Menu</h2>
+        <div className="menu  my-10 py-4 text-center">
+            <h1 className="font-bold text-2xl my-8">{name}</h1>
+            <h2 className="font-bold text-xl my-4">{resInfo?.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</h2>
             <ul>
                 {
-                    menuitems.map((item) => {
-                        return (<li key={item.card.info.id}>{item.card.info.name}</li>)
+                    filterCateogary.map((item) => {
+                        return (<li key={Math.random()}>{<RestuarantMenuDropdown data={item.card.card}></RestuarantMenuDropdown>}</li>)
                     })
                 }
             </ul>

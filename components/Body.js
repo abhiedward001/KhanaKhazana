@@ -6,13 +6,15 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useInternetStatus from "../utils/useInternetStatus";
 
+
 // Body of webpage
 const Body = () => {
     // console.log("Hello world");
     const [listOfResturants, setListOfResturnts] = useState([]);
     const [filterResturants, setFilterResturants] = useState([]);
     const [searchText, setSearchText] = useState("");
-    const internetStatus=useInternetStatus();
+    const internetStatus = useInternetStatus();
+
 
     useEffect(() => {
         fetchData();
@@ -44,8 +46,8 @@ const Body = () => {
         setFilterResturants(searchFilterData);
     }
 
-    if(internetStatus===false){
-        return(<h1>Opps looks like your internet connection is off</h1>)
+    if (internetStatus === false) {
+        return (<h1>Opps looks like your internet connection is off</h1>)
     }
     return (listOfResturants.length === 0) ? (<div ><Shimmer ></Shimmer>/</div>) : (
         <div className="bodyContainer mx-11 ">
@@ -56,13 +58,19 @@ const Body = () => {
 
                 <div className="search m-2 p-4 ">
                     <input className="border border-black rounded-md w-[300px]" type="text" onChange={searchTextHandler} value={searchText}></input>
-                    <button  className="px-4 m-2 bg-blue-200 rounded-md"onClick={searchBtnHandler}>Submit</button>
+                    <button className="px-4 m-2 bg-blue-200 rounded-md" onClick={searchBtnHandler}>Submit</button>
                 </div>
 
             </div>
 
             <div className="resContainer flex flex-wrap ">
-                {filterResturants.map((item) => <Link to={`restaurant/${item.info.id}`}> <ResturantCard key={item.info.id} resData={item} /> </Link>)}
+                {  console.log(filterResturants)}
+                {
+                    filterResturants.map((item) =>
+                        <Link key={item.info.id} to={`restaurant/${item.info.id}`}>
+                            <ResturantCard  resData={item} />
+                        </Link>)
+                }
             </div>
 
         </div>
