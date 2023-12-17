@@ -1,5 +1,5 @@
-import User from "./User";
-import Userclass from "./Userclass";
+import User from "./classBasedComponentsLearning/User";
+import Userclass from "./classBasedComponentsLearning/Userclass";
 import { useState } from "react";
 import React from "react";
 

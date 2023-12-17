@@ -1,5 +1,5 @@
 import React from 'react'
-import FoodInfo from './FoodInfo'
+import FoodInfo from '../FoodInfo'
 import { useState } from 'react'
 function RestuarantMenuDropdown({ data ,toggle, setToggle}) {
 

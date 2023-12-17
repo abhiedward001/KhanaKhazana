@@ -1,9 +1,9 @@
 import React from "react";
-import { iconUrl } from "../utils/constans";
+import { iconUrl } from "../utils/constants";
 import { useState} from "react";
 import { Link } from "react-router-dom";
 import useInternetStatus from "../utils/useInternetStatus";
-import CartIcon from "./Carticon";
+import CartIcon from "../utils/Carticon";
 
 // Header of the website
 const Header = () => {

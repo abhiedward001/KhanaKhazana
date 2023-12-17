@@ -1,5 +1,9 @@
 import React from "react";
 
+
+
+// this is just for learning the class based component
+
 class Userclass extends React.Component {
 
     constructor(props) {

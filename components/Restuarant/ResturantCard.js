@@ -1,5 +1,5 @@
 import React from "react";
-import { imgUrl } from "../utils/constans";
+import { imgUrl } from "../../utils/constants";
 
 const ResturantCard = (props) => {
     // console.log(props.resData.info);

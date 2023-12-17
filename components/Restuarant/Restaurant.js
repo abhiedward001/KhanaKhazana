@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 
-import Shimmer from "./Shimmer";
+import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
-import useResturantFetchData from "../utils/useResturantFetchData";
+import useResturantFetchData from "../../utils/useResturantFetchData";
 import RestuarantMenuDropdown from "./RestuarantMenuDropdown";
 
 const Restuarant = () => {
@@ -27,7 +27,7 @@ const Restuarant = () => {
             <h2 className="font-bold text-xl my-4">{resInfo?.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</h2>
             <ul>
 
-                // here using the lifiting up state so that parent element can control the child element
+                 {/* here using the lifiting up state so that parent element can control the child element */}
                 
                 {
                     filterCateogary.map((item,index) => {
