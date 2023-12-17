@@ -4,7 +4,7 @@ import resData from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useInternetStatus from "../utils/useInternetStatus";
+import useInternetStatus from "./customHooks/useInternetStatus";
 
 
 // Body of webpage

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
-import useResturantFetchData from "../../utils/useResturantFetchData";
+import useResturantFetchData from "../customHooks/useResturantFetchData";
 import RestuarantMenuDropdown from "./RestuarantMenuDropdown";
 
 const Restuarant = () => {

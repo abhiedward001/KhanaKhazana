@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect,useState } from "react";
-import { resURL } from "./constants";
+import { resURL } from "../../utils/constants";
 
 const useResturantFetchData = (resId) => {
 
