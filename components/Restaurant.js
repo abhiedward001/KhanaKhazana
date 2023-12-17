@@ -8,6 +8,9 @@ import RestuarantMenuDropdown from "./RestuarantMenuDropdown";
 const Restuarant = () => {
     const {resId}=useParams();
     const resInfo=useResturantFetchData(resId); // using custom hook for fetching the data
+    const [elemIndex, setElemIndex] = useState(0);
+
+   
  
     if (Object.keys(resInfo).length === 0) return <Shimmer />;
 
@@ -23,9 +26,16 @@ const Restuarant = () => {
             <h1 className="font-bold text-2xl my-8">{name}</h1>
             <h2 className="font-bold text-xl my-4">{resInfo?.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</h2>
             <ul>
+
+                // here using the lifiting up state so that parent element can control the child element
+                
                 {
-                    filterCateogary.map((item) => {
-                        return (<li key={Math.random()}>{<RestuarantMenuDropdown data={item.card.card}></RestuarantMenuDropdown>}</li>)
+                    filterCateogary.map((item,index) => {
+                        return (<li key={Math.random()}>{
+                            <RestuarantMenuDropdown data={item.card.card} toggle={index===elemIndex?true:false} setToggle={()=>setElemIndex(index)}>
+
+                            </RestuarantMenuDropdown>
+                            }</li>)
                     })
                 }
             </ul>

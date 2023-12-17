@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
+
+
+// this is also just for learning class bases component and comparing with Userclass.js
+
 const User=(props)=>{
     const [count,setCount]=useState(0);
     const {name,city}=props;
