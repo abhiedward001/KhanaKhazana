@@ -1,5 +1,5 @@
 import React from 'react'
-import { imgUrl } from '../utils/constants'
+import { imgUrl } from '../../utils/constants'
 function FoodInfo({ itemValue }) {
     return (
         <div className="my-2 py-4 border-b border-black text-left flex justify-between ">

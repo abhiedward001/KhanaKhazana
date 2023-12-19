@@ -1,19 +1,20 @@
 import React from "react";
 import ResturantCard from "./Restuarant/ResturantCard"
-import resData from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useInternetStatus from "./customHooks/useInternetStatus";
-
+import Userinfo from "../utils/Userinfo";
 
 // Body of webpage
 const Body = () => {
     // console.log("Hello world");
+
     const [listOfResturants, setListOfResturnts] = useState([]);
     const [filterResturants, setFilterResturants] = useState([]);
     const [searchText, setSearchText] = useState("");
     const internetStatus = useInternetStatus();
+    const {SetName}=useContext(Userinfo);
 
 
     useEffect(() => {
@@ -59,16 +60,22 @@ const Body = () => {
                 <div className="search m-2 p-4 ">
                     <input className="border border-black rounded-md w-[300px]" type="text" onChange={searchTextHandler} value={searchText}></input>
                     <button className="px-4 m-2 bg-blue-200 rounded-md" onClick={searchBtnHandler}>Submit</button>
+
+                    <span className="mx-4">
+                        <label >UserName:- </label>
+                        <input className="border border-black rounded-md w-[300px] p-2" type="text" onChange={(e)=>{SetName(e.target.value)}}></input>
+                    </span>
+
                 </div>
 
             </div>
 
             <div className="resContainer flex flex-wrap ">
-                {  console.log(filterResturants)}
+                {console.log(filterResturants)}
                 {
                     filterResturants.map((item) =>
                         <Link key={item.info.id} to={`restaurant/${item.info.id}`}>
-                            <ResturantCard  resData={item} />
+                            <ResturantCard resData={item} />
                         </Link>)
                 }
             </div>

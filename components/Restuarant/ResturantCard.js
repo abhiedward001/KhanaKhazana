@@ -1,8 +1,12 @@
 import React from "react";
 import { imgUrl } from "../../utils/constants";
+import Userinfo from "../../utils/Userinfo";
+import { useContext } from "react";
 
 const ResturantCard = (props) => {
     // console.log(props.resData.info);
+    const {Name}=useContext(Userinfo);
+
     const { name, cuisines, avgRating, deliveryTime, cloudinaryImageId } = props.resData?.info;
     return (
         <div className="resCard  rounded-md m-6 p-6 w-[350px] h-[450px] bg-gray-100 hover:bg-gray-200 hover:scale-110 transition duration-500 cursor-pointer">
@@ -13,6 +17,7 @@ const ResturantCard = (props) => {
                 <h4 className="py-1">{avgRating + " ⭐"}</h4>
                 <h4 className="py-1">{200 + " ₹"}</h4>
                 <h4 className="py-1">{deliveryTime}</h4>
+                <h4 className="py-1">{Name}</h4>
             </div>
 
         </div>

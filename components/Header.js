@@ -1,12 +1,14 @@
 import React from "react";
 import { iconUrl } from "../utils/constants";
-import { useState} from "react";
+import { useState,useContext} from "react";
 import { Link } from "react-router-dom";
 import useInternetStatus from "./customHooks/useInternetStatus";
-import CartIcon from "../utils/Carticon";
+import Userinfo from "../utils/Userinfo";
+
 
 // Header of the website
 const Header = () => {
+    const {Name}=useContext(Userinfo);
     const[loginBtn,setLoginBtn]=useState("Login");
     const internetStatus=useInternetStatus();
 
@@ -29,6 +31,7 @@ const Header = () => {
                 <li className="px-4  mx-2 text-white font-mono text-md font-bold hover:bg-gray-900 hover:rounded-md antialiased"><Link to="/privacy">Privacy</Link></li>
                 <li className="px-4  mx-2 text-white font-mono text-md font-bold hover:bg-gray-900 hover:rounded-md antialiased">Cart</li>
                 <button  className="login-Btn px-4  mx-2 text-white font-mono text-md font-bold hover:bg-gray-900 hover:rounded-md antialiased" onClick={logibBtnHandler}>{loginBtn}</button>
+                <span className="text-white">{Name}</span>
             </ul>
         </div>
     </div> 

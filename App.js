@@ -1,4 +1,4 @@
-import react, { Children } from "react";
+import react, { Children, useEffect, useState } from "react";
 import reactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,18 +6,33 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Privacy from "./components/Privacy";
 import Restuarant from "./components/Restuarant/Restaurant.js";
+import Userinfo from "./utils/Userinfo";
 
 
 
 // This is main app
 
 
-const App = () => (
-    <div className="container">
-        <Header />
-        <Outlet />
-    </div>
-)
+const App = () => {
+
+    const [name,SetName]=useState(null);
+
+    useEffect(()=>{
+     SetName("Himanshu Jaiswal");
+    },[]);
+    
+    return (
+        <Userinfo.Provider value={{Name:name,SetName}}>
+            <div className="container">
+                <Header />
+                <Outlet />
+            </div>
+        </Userinfo.Provider>
+
+    )
+}
+
+
 
 const router = createBrowserRouter([
     {
@@ -37,8 +52,8 @@ const router = createBrowserRouter([
                 element: <Privacy />
             },
             {
-                path:'/restaurant/:resId',
-                element:<Restuarant/>
+                path: '/restaurant/:resId',
+                element: <Restuarant />
             }
         ]
     },
@@ -52,8 +67,8 @@ const router = createBrowserRouter([
     }
     ,
     {
-        path:'/restaurant/:resId',
-        element:<Restuarant/>
+        path: '/restaurant/:resId',
+        element: <Restuarant />
     }
 ]);
 
