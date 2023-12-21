@@ -6,7 +6,7 @@ function RestuarantMenuDropdown({ data ,toggle, setToggle}) {
     const toggleHandler = () => {
         setToggle();
     }
-    // const toggleData = ();
+  
     return (
 
         <div className="w-6/12 mx-auto bg-gray-100 shadow-lg my-4 p-4 ">

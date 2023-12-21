@@ -16,7 +16,7 @@ const ResturantCard = (props) => {
                 <h4 className="py-1 text-gray-500">{cuisines.join(", ")}</h4>
                 <h4 className="py-1">{avgRating + " ⭐"}</h4>
                 <h4 className="py-1">{200 + " ₹"}</h4>
-                <h4 className="py-1">{deliveryTime}</h4>
+             <h4 className="py-1">{deliveryTime}</h4>
                 <h4 className="py-1">{Name}</h4>
             </div>
 
