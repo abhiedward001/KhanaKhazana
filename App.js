@@ -7,27 +7,30 @@ import About from "./components/About";
 import Privacy from "./components/Privacy";
 import Restuarant from "./components/Restuarant/Restaurant.js";
 import Userinfo from "./utils/Userinfo";
-
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 // This is main app
 
 
 const App = () => {
 
-    const [name,SetName]=useState(null);
+    const [name, SetName] = useState(null);
 
-    useEffect(()=>{
-     SetName("Himanshu Jaiswal");
-    },[]);
-    
+    useEffect(() => {
+        SetName("Himanshu Jaiswal");
+    }, []);
+
     return (
-        <Userinfo.Provider value={{Name:name,SetName}}>
-            <div className="container">
-                <Header />
-                <Outlet />
-            </div>
-        </Userinfo.Provider>
+        <Provider store={appStore}>
+            <Userinfo.Provider value={{ Name: name, SetName }}>
+                <div className="container">
+                    <Header />
+                    <Outlet />
+                </div>
+            </Userinfo.Provider>
+        </Provider>
+
 
     )
 }
